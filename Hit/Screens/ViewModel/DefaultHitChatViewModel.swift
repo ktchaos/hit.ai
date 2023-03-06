@@ -26,7 +26,7 @@ final class DefaultHitChatViewModel: HitChatViewModel, HitChatViewModelOutput {
     func bindChatRepository() {
         chatRepository.response.asObservable()
             .subscribe(onNext: {
-                print("[DEBUG] ", $0)
+                // TODO: Handle AI response
             })
             .disposed(by: disposeBag)
     }
@@ -34,6 +34,10 @@ final class DefaultHitChatViewModel: HitChatViewModel, HitChatViewModelOutput {
 
 extension DefaultHitChatViewModel: HitChatViewModelInput {
     func sendMessage(input: String) {
+        guard !input.isEmpty else {
+            return
+        }
+
         chatRepository.sendMessage(input: input)
     }
 }

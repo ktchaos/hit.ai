@@ -23,7 +23,9 @@ final class RemoteChatService: ChatService {
                 do {
                     let completionResponse = try $0.map(CompletionResponse.self)
                     return completionResponse
-                } catch {}
+                } catch {
+                    // TODO: Handle error
+                }
 
                 return CompletionResponse(id: "", object: "", model: "", choices: [])
             }

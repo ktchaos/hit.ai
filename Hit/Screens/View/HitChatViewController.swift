@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 final class HitChatViewController: UIViewController, ViewModelBindable {
+    private let disposeBag = DisposeBag()
+
     private lazy var textField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .blue
@@ -26,6 +29,16 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
         stack.spacing = 8
         return stack
     }()
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .green
+        return tableView
+    }()
+    private lazy var headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemPink
+        return view
+    }()
 
     var viewModel: HitChatViewModel?
 
@@ -35,8 +48,8 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
 
         self.setupSubviews()
         self.setupConstraints()
-
-        self.viewModel?.input.sendMessage(input: "Who is the president of Hawaii?")
+        self.setupColors()
+        self.setupActions()
     }
 
     func bindViewModel() {
@@ -45,6 +58,8 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
 
     func setupSubviews() {
         self.view.addSubview(hStack)
+        self.view.addSubview(tableView)
+        self.view.addSubview(headerView)
     }
 
     func setupConstraints() {
@@ -57,5 +72,29 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
             $0.leading.equalToSuperview().offset(24)
             $0.bottom.equalToSuperview().inset(42)
         }
+
+        headerView.snp.makeConstraints {
+            $0.trailing.leading.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.height.equalTo(120)
+        }
+
+        tableView.snp.makeConstraints {
+            $0.trailing.leading.equalToSuperview()
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.bottom.equalTo(hStack.snp.top)
+        }
+    }
+
+    func setupColors() {
+        self.view.backgroundColor = .gray
+    }
+
+    func setupActions() {
+        sendButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel?.input.sendMessage(input: self?.textField.text ?? "")
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -32,6 +32,7 @@
 		CB96AF8E29B441380029057A /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF8D29B441380029057A /* ChatRepository.swift */; };
 		CB96AF9029B441B00029057A /* DefaultChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF8F29B441B00029057A /* DefaultChatRepository.swift */; };
 		CB96AF9229B445E60029057A /* OpenAIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF9129B445E60029057A /* OpenAIAPI.swift */; };
+		CBE3D54129B5A4FE008EC3F0 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3D54029B5A4FE008EC3F0 /* AppColor.swift */; };
 		F2DEEF4154696BC33F4901A6 /* Pods_Hit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F634A085822FC680373FC06C /* Pods_Hit.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		CB96AF8D29B441380029057A /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		CB96AF8F29B441B00029057A /* DefaultChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultChatRepository.swift; sourceTree = "<group>"; };
 		CB96AF9129B445E60029057A /* OpenAIAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAPI.swift; sourceTree = "<group>"; };
+		CBE3D54029B5A4FE008EC3F0 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		E03240CB90315A7A4D3F775C /* Pods_Hit_HitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hit_HitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DB5256083093D5EE9AB39E /* Pods-HitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTests.release.xcconfig"; path = "Target Support Files/Pods-HitTests/Pods-HitTests.release.xcconfig"; sourceTree = "<group>"; };
 		F634A085822FC680373FC06C /* Pods_Hit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,12 +155,12 @@
 		CB552C6D29B3DC6C00AFB8B6 /* Hit */ = {
 			isa = PBXGroup;
 			children = (
+				CBE3D53F29B5A4EC008EC3F0 /* Resource */,
 				CB96AF8C29B43F2B0029057A /* API */,
 				CB96AF7B29B4286B0029057A /* Common */,
 				CB96AF7629B41AF00029057A /* App */,
 				CB96AF8829B43E810029057A /* Data */,
 				CB552C9E29B3DC7B00AFB8B6 /* Screens */,
-				CB552C7729B3DC6D00AFB8B6 /* Assets.xcassets */,
 				CB552C7929B3DC6D00AFB8B6 /* LaunchScreen.storyboard */,
 				CB552C7C29B3DC6D00AFB8B6 /* Info.plist */,
 			);
@@ -272,6 +274,23 @@
 				CB11D64529B528320076A7DB /* OpenAIAPIConstants.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		CBE3D53F29B5A4EC008EC3F0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CBE3D54229B5A89E008EC3F0 /* Components */,
+				CB552C7729B3DC6D00AFB8B6 /* Assets.xcassets */,
+				CBE3D54029B5A4FE008EC3F0 /* AppColor.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CBE3D54229B5A89E008EC3F0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		DF3FC0D6B9D60011A7DD69BD /* Pods */ = {
@@ -546,6 +565,7 @@
 				CB11D64629B528320076A7DB /* OpenAIAPIConstants.swift in Sources */,
 				CB96AF8729B431920029057A /* ViewModelBindable.swift in Sources */,
 				CB552C6F29B3DC6C00AFB8B6 /* AppDelegate.swift in Sources */,
+				CBE3D54129B5A4FE008EC3F0 /* AppColor.swift in Sources */,
 				CB552C7129B3DC6C00AFB8B6 /* SceneDelegate.swift in Sources */,
 				CB11D63E29B51E750076A7DB /* RemoteChatService.swift in Sources */,
 				CB96AF9029B441B00029057A /* DefaultChatRepository.swift in Sources */,
