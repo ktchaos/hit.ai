@@ -13,8 +13,8 @@ final class DefaultChatRepository: ChatRepository {
     private let remoteDataSource: RemoteChatDataSource
     private let disposeBag = DisposeBag()
 
-    private let responsesRelay: BehaviorRelay<[CompletionResponse]> = .init(value: [])
-    let response: Property<[CompletionResponse]>
+    private let responsesRelay: BehaviorRelay<CompletionResponse?> = .init(value: nil)
+    let response: Property<CompletionResponse?>
 
     init(remoteDataSource: RemoteChatDataSource = RemoteChatDataSource()) {
         self.remoteDataSource = remoteDataSource
@@ -23,13 +23,7 @@ final class DefaultChatRepository: ChatRepository {
 
     func sendMessage(input: String) {
         remoteDataSource.sendMessage(input: input)
-            .subscribe(onSuccess: { [weak self] in
-                guard let self else {
-                    return
-                }
-
-                self.responsesRelay.accept(self.responsesRelay.value + [$0])
-            })
+            .subscribe(onSuccess: { [weak self] in self?.responsesRelay.accept($0) })
             .disposed(by: disposeBag)
     }
 }

@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let hitChatViewController = HitChatViewController()
-        hitChatViewController.viewModel = DefaultHitChatViewModel()
+        let viewModel = DefaultHitChatViewModel()
+        hitChatViewController.bind(to: viewModel)
         window?.rootViewController = hitChatViewController
         window?.makeKeyAndVisible()
     }

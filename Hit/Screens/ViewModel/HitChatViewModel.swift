@@ -12,7 +12,7 @@ protocol HitChatViewModelInput {
 }
 
 protocol HitChatViewModelOutput {
-    var responseCompletion: Driver<[String]> { get }
+    var chat: Driver<[Message]> { get }
 }
 
 protocol HitChatViewModel {

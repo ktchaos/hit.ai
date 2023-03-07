@@ -17,6 +17,9 @@
 		CB11D64629B528320076A7DB /* OpenAIAPIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11D64529B528320076A7DB /* OpenAIAPIConstants.swift */; };
 		CB11D64929B529B40076A7DB /* CompletionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11D64829B529B40076A7DB /* CompletionResponse.swift */; };
 		CB11D64B29B529BE0076A7DB /* ModelOptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11D64A29B529BE0076A7DB /* ModelOptionResponse.swift */; };
+		CB3E1F8A29B6AA4100E06B8B /* UserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E1F8929B6AA4100E06B8B /* UserMessage.swift */; };
+		CB3E1F8C29B6AA5200E06B8B /* ModelResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E1F8B29B6AA5200E06B8B /* ModelResponseMessage.swift */; };
+		CB3E1F8E29B6AA5800E06B8B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3E1F8D29B6AA5800E06B8B /* Message.swift */; };
 		CB552C6F29B3DC6C00AFB8B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB552C6E29B3DC6C00AFB8B6 /* AppDelegate.swift */; };
 		CB552C7129B3DC6C00AFB8B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB552C7029B3DC6C00AFB8B6 /* SceneDelegate.swift */; };
 		CB552C7829B3DC6D00AFB8B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB552C7729B3DC6D00AFB8B6 /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 		CB11D64529B528320076A7DB /* OpenAIAPIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAPIConstants.swift; sourceTree = "<group>"; };
 		CB11D64829B529B40076A7DB /* CompletionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionResponse.swift; sourceTree = "<group>"; };
 		CB11D64A29B529BE0076A7DB /* ModelOptionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelOptionResponse.swift; sourceTree = "<group>"; };
+		CB3E1F8929B6AA4100E06B8B /* UserMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessage.swift; sourceTree = "<group>"; };
+		CB3E1F8B29B6AA5200E06B8B /* ModelResponseMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelResponseMessage.swift; sourceTree = "<group>"; };
+		CB3E1F8D29B6AA5800E06B8B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CB552C6B29B3DC6C00AFB8B6 /* Hit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB552C6E29B3DC6C00AFB8B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB552C7029B3DC6C00AFB8B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CB3E1F8829B6AA2600E06B8B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CB3E1F8929B6AA4100E06B8B /* UserMessage.swift */,
+				CB3E1F8B29B6AA5200E06B8B /* ModelResponseMessage.swift */,
+				CB3E1F8D29B6AA5800E06B8B /* Message.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		CB552C6229B3DC6C00AFB8B6 = {
 			isa = PBXGroup;
 			children = (
@@ -155,14 +171,15 @@
 		CB552C6D29B3DC6C00AFB8B6 /* Hit */ = {
 			isa = PBXGroup;
 			children = (
-				CBE3D53F29B5A4EC008EC3F0 /* Resource */,
 				CB96AF8C29B43F2B0029057A /* API */,
-				CB96AF7B29B4286B0029057A /* Common */,
 				CB96AF7629B41AF00029057A /* App */,
+				CB96AF7B29B4286B0029057A /* Common */,
 				CB96AF8829B43E810029057A /* Data */,
-				CB552C9E29B3DC7B00AFB8B6 /* Screens */,
-				CB552C7929B3DC6D00AFB8B6 /* LaunchScreen.storyboard */,
+				CB3E1F8829B6AA2600E06B8B /* Domain */,
 				CB552C7C29B3DC6D00AFB8B6 /* Info.plist */,
+				CB552C7929B3DC6D00AFB8B6 /* LaunchScreen.storyboard */,
+				CBE3D53F29B5A4EC008EC3F0 /* Resource */,
+				CB552C9E29B3DC7B00AFB8B6 /* Screens */,
 			);
 			path = Hit;
 			sourceTree = "<group>";
@@ -555,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB11D64429B5227C0076A7DB /* Property.swift in Sources */,
+				CB3E1F8C29B6AA5200E06B8B /* ModelResponseMessage.swift in Sources */,
 				CB11D64B29B529BE0076A7DB /* ModelOptionResponse.swift in Sources */,
 				CB96AF9229B445E60029057A /* OpenAIAPI.swift in Sources */,
 				CB96AF8329B42F690029057A /* DefaultHitChatViewModel.swift in Sources */,
@@ -570,6 +588,8 @@
 				CB11D63E29B51E750076A7DB /* RemoteChatService.swift in Sources */,
 				CB96AF9029B441B00029057A /* DefaultChatRepository.swift in Sources */,
 				CB96AF8129B42F3A0029057A /* HitChatViewModel.swift in Sources */,
+				CB3E1F8E29B6AA5800E06B8B /* Message.swift in Sources */,
+				CB3E1F8A29B6AA4100E06B8B /* UserMessage.swift in Sources */,
 				CB96AF8E29B441380029057A /* ChatRepository.swift in Sources */,
 				CB11D63A29B51E170076A7DB /* ChatService.swift in Sources */,
 				CB11D64029B51F3A0076A7DB /* ChatDataSource.swift in Sources */,

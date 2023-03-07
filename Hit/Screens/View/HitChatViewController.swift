@@ -53,7 +53,9 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
     }
 
     func bindViewModel() {
-
+        viewModel?.output.chat.asDriver()
+            .drive(onNext: { _ in })
+            .disposed(by: disposeBag)
     }
 
     func setupSubviews() {
