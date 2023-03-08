@@ -11,6 +11,7 @@ import UIKit
 enum AppColor: String {
     case darkerGray
     case lightGray
+    case darkestGray
 
     var color: UIColor {
         return UIColor(named: self.rawValue) ?? .black

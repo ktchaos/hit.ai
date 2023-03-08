@@ -12,32 +12,14 @@ import RxSwift
 final class HitChatViewController: UIViewController, ViewModelBindable {
     private let disposeBag = DisposeBag()
 
-    private lazy var textField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .blue
-        return textField
-    }()
-    private lazy var sendButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .red
-        button.setTitle("", for: .normal)
-        return button
-    }()
-    private lazy var hStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [textField, sendButton])
-        stack.axis = .horizontal
-        stack.spacing = 8
-        return stack
-    }()
+    private lazy var headerView = ChatHeaderView()
+    private lazy var messageTextField = MessageTextField()
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .green
+        tableView.register(on: MessageCell.self)
+        tableView.backgroundColor = .clear
         return tableView
-    }()
-    private lazy var headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemPink
-        return view
     }()
 
     var viewModel: HitChatViewModel?
@@ -48,55 +30,92 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
 
         self.setupSubviews()
         self.setupConstraints()
-        self.setupColors()
         self.setupActions()
+        self.setupColors()
+        setupKeyboardAppeances()
     }
 
     func bindViewModel() {
         viewModel?.output.chat.asDriver()
+            .debug("[DEBUG]")
             .drive(onNext: { _ in })
             .disposed(by: disposeBag)
     }
 
     func setupSubviews() {
-        self.view.addSubview(hStack)
-        self.view.addSubview(tableView)
-        self.view.addSubview(headerView)
+        view.addSubview(messageTextField)
+        view.addSubview(tableView)
+        view.addSubview(headerView)
     }
 
     func setupConstraints() {
-        sendButton.snp.makeConstraints {
-            $0.width.equalTo(36)
-        }
-
-        hStack.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(24)
-            $0.leading.equalToSuperview().offset(24)
-            $0.bottom.equalToSuperview().inset(42)
-        }
-
         headerView.snp.makeConstraints {
             $0.trailing.leading.equalToSuperview()
-            $0.top.equalToSuperview()
-            $0.height.equalTo(120)
+            $0.top.equalToSuperview().offset(52)
         }
 
         tableView.snp.makeConstraints {
             $0.trailing.leading.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom)
-            $0.bottom.equalTo(hStack.snp.top)
+            $0.bottom.equalToSuperview().inset(100)
+        }
+
+        messageTextField.snp.makeConstraints {
+            $0.top.equalTo(tableView.snp.bottom)
+            $0.trailing.leading.equalToSuperview().inset(12)
         }
     }
 
     func setupColors() {
-        self.view.backgroundColor = .gray
+       view.backgroundColor = AppColor.darkestGray.color
     }
 
     func setupActions() {
-        sendButton.rx.tap
+        messageTextField.sendButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel?.input.sendMessage(input: self?.textField.text ?? "")
+                self?.viewModel?.input.sendMessage(input: self?.messageTextField.textField.text ?? "")
             })
             .disposed(by: disposeBag)
+    }
+
+    func setupKeyboardAppeances() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+
+    // TODO: Improve UX for keyboard
+
+    @objc func keyboardWillShow(sender: NSNotification) {
+//        guard let keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+//            return
+//        }
+//
+//
+//        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+//        let convertedTextFieldFrame = view.convert(messageTextField.frame, to: messageTextField.superview)
+//        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+//
+//        let textBoxY = convertedTextFieldFrame.origin.y
+//        let newFrameY = (textBoxY - keyboardTopY / 2) * -1
+//
+//        view.frame.origin.y = newFrameY
+
+//        self.messageTextField.frame.origin.y = messageTextField.frame.origin.y - 200
+        view.frame.origin.y = view.frame.origin.y - 300
+    }
+
+    @objc func keyboardWillHide(sender: NSNotification) {
+//        self.messageTextField.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
 }
