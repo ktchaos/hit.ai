@@ -32,9 +32,18 @@ final class DefaultChatRepository: ChatRepository {
                     return
                 }
 
-                let modelMessage: Message = ModelResponseMessage(type: .model, content: content)
+                let formattedText = self.removeReturnsOnString(content)
+                let modelMessage: Message = ModelResponseMessage(type: .model, content: formattedText)
                 self.chatRelay.accept(self.chatRelay.value + [modelMessage])
             })
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: Helpers
+extension DefaultChatRepository {
+    private func removeReturnsOnString(_ input: String) -> String {
+        let newString = input.replacingOccurrences(of: "\n", with: "")
+        return newString
     }
 }

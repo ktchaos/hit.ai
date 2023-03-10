@@ -18,7 +18,7 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(MessageCell.self, forCellReuseIdentifier: MessageCell.identifier)
-        tableView.rowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = .clear
         return tableView
     }()
@@ -79,6 +79,7 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
         messageTextField.sendButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel?.input.sendMessage(input: self?.messageTextField.textField.text ?? "")
+                self?.messageTextField.textField.text = ""
             })
             .disposed(by: disposeBag)
     }
