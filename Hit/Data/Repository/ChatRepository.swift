@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol ChatRepository {
-    var response: Property<CompletionResponse?> { get }
+    var chat: Property<[Message]> { get }
 
     func sendMessage(input: String)
 }

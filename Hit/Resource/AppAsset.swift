@@ -11,6 +11,7 @@ enum AppAsset: String {
     case plus
     case menu = "filemenu.and.cursorarrow"
     case paperPlane = "paperplane.fill"
+    case user = "person.fill"
 
     var image: UIImage {
         return UIImage(systemName: self.rawValue) ?? .checkmark

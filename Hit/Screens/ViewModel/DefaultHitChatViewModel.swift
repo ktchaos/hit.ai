@@ -13,27 +13,23 @@ final class DefaultHitChatViewModel: HitChatViewModel, HitChatViewModelOutput {
     private let chatRepository: ChatRepository
     private let disposeBag = DisposeBag()
 
-    private let chatRelay: BehaviorRelay<[Message]> = .init(value: [])
+    private let cellViewModelsRelay: BehaviorRelay<[MessageCellViewModel]> = .init(value: [])
 
-    let chat: Driver<[Message]>
+    let cellViewModels: Driver<[MessageCellViewModel]>
 
     init(chatRepository: ChatRepository = DefaultChatRepository()) {
         self.chatRepository = chatRepository
-        self.chat = chatRelay.asDriver()
+        self.cellViewModels = cellViewModelsRelay.asDriver()
 
         bindChatRepository()
     }
 
     func bindChatRepository() {
-        chatRepository.response.asObservable()
-            .subscribe(onNext: { [weak self] in
-                guard let self, let content = $0?.choices.first?.text else {
-                    return
-                }
-
-                let modelMessage: Message = ModelResponseMessage(type: .model, content: content)
-                self.chatRelay.accept(self.chatRelay.value + [modelMessage])
-            })
+        chatRepository.chat.asDriver()
+            .drive { [weak self] in
+                let cellModels = $0.map { MessageCellViewModel(message: $0.content, type: $0.type) }
+                self?.cellViewModelsRelay.accept(cellModels)
+            }
             .disposed(by: disposeBag)
     }
 }
@@ -44,8 +40,6 @@ extension DefaultHitChatViewModel: HitChatViewModelInput {
             return
         }
 
-        let userMessage: Message = UserMessage(type: .user, content: input)
-        chatRelay.accept(self.chatRelay.value + [userMessage])
         chatRepository.sendMessage(input: input)
     }
 }

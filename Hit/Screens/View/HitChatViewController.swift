@@ -17,7 +17,8 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(on: MessageCell.self)
+        tableView.register(MessageCell.self, forCellReuseIdentifier: MessageCell.identifier)
+        tableView.rowHeight = 80
         tableView.backgroundColor = .clear
         return tableView
     }()
@@ -28,18 +29,22 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
         super.viewDidLoad()
         self.view.backgroundColor = .white
 
-        self.setupSubviews()
-        self.setupConstraints()
-        self.setupActions()
-        self.setupColors()
+        setupSubviews()
+        setupConstraints()
+        setupActions()
+        setupColors()
         setupKeyboardAppeances()
     }
 
     func bindViewModel() {
-        viewModel?.output.chat.asDriver()
-            .debug("[DEBUG]")
-            .drive(onNext: { _ in })
-            .disposed(by: disposeBag)
+        viewModel?.output.cellViewModels
+            .drive(tableView.rx.items(
+                cellIdentifier: MessageCell.identifier,
+                cellType: MessageCell.self
+            )) { _, item, cell in
+                cell.bind(to: item)
+            }
+            .disposed(by: self.disposeBag)
     }
 
     func setupSubviews() {

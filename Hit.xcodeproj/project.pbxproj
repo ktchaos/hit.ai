@@ -32,6 +32,8 @@
 		CB552C8629B3DC6D00AFB8B6 /* HitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB552C8529B3DC6D00AFB8B6 /* HitTests.swift */; };
 		CB552C9029B3DC6D00AFB8B6 /* HitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB552C8F29B3DC6D00AFB8B6 /* HitUITests.swift */; };
 		CB552C9229B3DC6D00AFB8B6 /* HitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB552C9129B3DC6D00AFB8B6 /* HitUITestsLaunchTests.swift */; };
+		CB790CEA29B97C5000A76B4A /* MessageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB790CE929B97C5000A76B4A /* MessageCellViewModel.swift */; };
+		CB790CEC29B98C3F00A76B4A /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB790CEB29B98C3F00A76B4A /* MessageCell.swift */; };
 		CB96AF7A29B41C990029057A /* HitChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF7929B41C990029057A /* HitChatViewController.swift */; };
 		CB96AF7D29B428760029057A /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF7C29B428760029057A /* ViewCodable.swift */; };
 		CB96AF8129B42F3A0029057A /* HitChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF8029B42F3A0029057A /* HitChatViewModel.swift */; };
@@ -41,7 +43,6 @@
 		CB96AF9029B441B00029057A /* DefaultChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF8F29B441B00029057A /* DefaultChatRepository.swift */; };
 		CB96AF9229B445E60029057A /* OpenAIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF9129B445E60029057A /* OpenAIAPI.swift */; };
 		CB979F2B29B8F4BF00653B24 /* TableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB979F2A29B8F4BF00653B24 /* TableView+Extension.swift */; };
-		CB979F2E29B8F5EA00653B24 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB979F2D29B8F5EA00653B24 /* MessageCell.swift */; };
 		CBE3D54129B5A4FE008EC3F0 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3D54029B5A4FE008EC3F0 /* AppColor.swift */; };
 		F2DEEF4154696BC33F4901A6 /* Pods_Hit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F634A085822FC680373FC06C /* Pods_Hit.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,8 @@
 		CB552C8B29B3DC6D00AFB8B6 /* HitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB552C8F29B3DC6D00AFB8B6 /* HitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitUITests.swift; sourceTree = "<group>"; };
 		CB552C9129B3DC6D00AFB8B6 /* HitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CB790CE929B97C5000A76B4A /* MessageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellViewModel.swift; sourceTree = "<group>"; };
+		CB790CEB29B98C3F00A76B4A /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		CB96AF7929B41C990029057A /* HitChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitChatViewController.swift; sourceTree = "<group>"; };
 		CB96AF7C29B428760029057A /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		CB96AF8029B42F3A0029057A /* HitChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitChatViewModel.swift; sourceTree = "<group>"; };
@@ -105,7 +108,6 @@
 		CB96AF8F29B441B00029057A /* DefaultChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultChatRepository.swift; sourceTree = "<group>"; };
 		CB96AF9129B445E60029057A /* OpenAIAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIAPI.swift; sourceTree = "<group>"; };
 		CB979F2A29B8F4BF00653B24 /* TableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Extension.swift"; sourceTree = "<group>"; };
-		CB979F2D29B8F5EA00653B24 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		CBE3D54029B5A4FE008EC3F0 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		E03240CB90315A7A4D3F775C /* Pods_Hit_HitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hit_HitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DB5256083093D5EE9AB39E /* Pods-HitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTests.release.xcconfig"; path = "Target Support Files/Pods-HitTests/Pods-HitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +239,14 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		CB790CE829B97C4500A76B4A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CB790CE929B97C5000A76B4A /* MessageCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CB96AF7629B41AF00029057A /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +278,7 @@
 		CB96AF7F29B42E590029057A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CB790CE829B97C4500A76B4A /* Cell */,
 				CB96AF8029B42F3A0029057A /* HitChatViewModel.swift */,
 				CB96AF8229B42F690029057A /* DefaultHitChatViewModel.swift */,
 			);
@@ -332,7 +343,7 @@
 		CB979F2C29B8F50D00653B24 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CB979F2D29B8F5EA00653B24 /* MessageCell.swift */,
+				CB790CEB29B98C3F00A76B4A /* MessageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -623,6 +634,7 @@
 				CB3E1F9329B6BEEC00E06B8B /* ChatHeaderView.swift in Sources */,
 				CB155CCD29B6EF8300BE5AC2 /* TestingViewController.swift in Sources */,
 				CB96AF9229B445E60029057A /* OpenAIAPI.swift in Sources */,
+				CB790CEA29B97C5000A76B4A /* MessageCellViewModel.swift in Sources */,
 				CB96AF8329B42F690029057A /* DefaultHitChatViewModel.swift in Sources */,
 				CB96AF7A29B41C990029057A /* HitChatViewController.swift in Sources */,
 				CB11D64929B529B40076A7DB /* CompletionResponse.swift in Sources */,
@@ -630,11 +642,11 @@
 				CB11D64229B51F880076A7DB /* RemoteChatDataSource.swift in Sources */,
 				CB11D64629B528320076A7DB /* OpenAIAPIConstants.swift in Sources */,
 				CB96AF8729B431920029057A /* ViewModelBindable.swift in Sources */,
-				CB979F2E29B8F5EA00653B24 /* MessageCell.swift in Sources */,
 				CB552C6F29B3DC6C00AFB8B6 /* AppDelegate.swift in Sources */,
 				CBE3D54129B5A4FE008EC3F0 /* AppColor.swift in Sources */,
 				CB552C7129B3DC6C00AFB8B6 /* SceneDelegate.swift in Sources */,
 				CB11D63E29B51E750076A7DB /* RemoteChatService.swift in Sources */,
+				CB790CEC29B98C3F00A76B4A /* MessageCell.swift in Sources */,
 				CB96AF9029B441B00029057A /* DefaultChatRepository.swift in Sources */,
 				CB155CD029B6F0F100BE5AC2 /* AppAsset.swift in Sources */,
 				CB979F2B29B8F4BF00653B24 /* TableView+Extension.swift in Sources */,

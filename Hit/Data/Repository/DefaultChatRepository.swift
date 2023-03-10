@@ -6,24 +6,35 @@
 //
 
 import Foundation
+import RxCocoa
 import RxSwift
 import RxRelay
 
 final class DefaultChatRepository: ChatRepository {
     private let remoteDataSource: RemoteChatDataSource
     private let disposeBag = DisposeBag()
+    private let chatRelay: BehaviorRelay<[Message]> = .init(value: [])
 
-    private let responsesRelay: BehaviorRelay<CompletionResponse?> = .init(value: nil)
-    let response: Property<CompletionResponse?>
+    let chat: Property<[Message]>
 
     init(remoteDataSource: RemoteChatDataSource = RemoteChatDataSource()) {
         self.remoteDataSource = remoteDataSource
-        self.response = Property(responsesRelay)
+        self.chat = Property(chatRelay)
     }
 
     func sendMessage(input: String) {
+        let userMessage: Message = UserMessage(type: .user, content: input)
+        chatRelay.accept(self.chatRelay.value + [userMessage])
+
         remoteDataSource.sendMessage(input: input)
-            .subscribe(onSuccess: { [weak self] in self?.responsesRelay.accept($0) })
+            .subscribe(onSuccess: { [weak self] in
+                guard let self, let content = $0.choices.first?.text else {
+                    return
+                }
+
+                let modelMessage: Message = ModelResponseMessage(type: .model, content: content)
+                self.chatRelay.accept(self.chatRelay.value + [modelMessage])
+            })
             .disposed(by: disposeBag)
     }
 }
