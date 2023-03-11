@@ -11,9 +11,8 @@ import RxSwift
 
 final class DefaultHitChatViewModel: HitChatViewModel, HitChatViewModelOutput {
     private let chatRepository: ChatRepository
-    private let disposeBag = DisposeBag()
-
     private let cellViewModelsRelay: BehaviorRelay<[MessageCellViewModel]> = .init(value: [])
+    private let disposeBag = DisposeBag()
 
     let cellViewModels: Driver<[MessageCellViewModel]>
 

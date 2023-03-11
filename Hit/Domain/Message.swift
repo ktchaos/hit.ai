@@ -10,6 +10,7 @@ import Foundation
 enum MessageType {
     case user
     case model
+    case loading
 }
 
 protocol Message {

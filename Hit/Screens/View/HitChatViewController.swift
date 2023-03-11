@@ -19,7 +19,9 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
         let tableView = UITableView()
         tableView.register(MessageCell.self, forCellReuseIdentifier: MessageCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         return tableView
     }()
 
@@ -66,7 +68,7 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
         }
 
         messageTextField.snp.makeConstraints {
-            $0.top.equalTo(tableView.snp.bottom)
+            $0.top.equalTo(tableView.snp.bottom).offset(12)
             $0.trailing.leading.equalToSuperview().inset(12)
         }
     }

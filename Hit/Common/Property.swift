@@ -10,16 +10,6 @@ import RxCocoa
 import RxRelay
 import RxSwift
 
-// Source: https://github.com/inamiy/RxProperty [ML]
-
-/// A get-only `BehaviorRelay` that works similar to ReactiveSwift's `Property`.
-///
-/// - Note:
-/// From ver 0.3.0, this class will no longer send `.completed` when deallocated.
-///
-/// - SeeAlso:
-///     https://github.com/ReactiveCocoa/ReactiveSwift/blob/1.1.0/Sources/Property.swift
-///     https://github.com/ReactiveX/RxSwift/pull/1118 (unmerged)
 final class Property<Element> {
     private let behaviorRelay: BehaviorRelay<Element>
 

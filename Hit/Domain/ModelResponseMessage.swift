@@ -10,5 +10,4 @@ import Foundation
 struct ModelResponseMessage: Message {
     let type: MessageType
     let content: String
-
 }

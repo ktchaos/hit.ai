@@ -9,10 +9,13 @@ import UIKit
 import RxSwift
 
 final class MessageTextField: UIView, ViewCodable {
+    // MARK: Properties
+
     private let disposeBag = DisposeBag()
 
     public lazy var textField: UITextField = {
         let textField = UITextField()
+        textField.addPadding(.both(15))
         textField.backgroundColor = .white
         textField.textColor = .white
         textField.tintColor = .white
@@ -57,6 +60,8 @@ final class MessageTextField: UIView, ViewCodable {
         self.setup()
     }
 
+    // MARK: Setup
+    
     func setupSubviews() {
         self.addSubview(hStack)
     }

@@ -24,7 +24,8 @@ final class DefaultChatRepository: ChatRepository {
 
     func sendMessage(input: String) {
         let userMessage: Message = UserMessage(type: .user, content: input)
-        chatRelay.accept(self.chatRelay.value + [userMessage])
+        let loadingStateMessage: Message = UserMessage(type: .loading, content: "")
+        chatRelay.accept(self.chatRelay.value + [userMessage, loadingStateMessage])
 
         remoteDataSource.sendMessage(input: input)
             .subscribe(onSuccess: { [weak self] in
@@ -34,7 +35,8 @@ final class DefaultChatRepository: ChatRepository {
 
                 let formattedText = self.removeReturnsOnString(content)
                 let modelMessage: Message = ModelResponseMessage(type: .model, content: formattedText)
-                self.chatRelay.accept(self.chatRelay.value + [modelMessage])
+                let newChatValue = self.chatRelay.value.filter { !($0.type == .loading) }
+                self.chatRelay.accept(newChatValue + [modelMessage])
             })
             .disposed(by: disposeBag)
     }

@@ -8,6 +8,8 @@
 import UIKit
 
 final class ChatHeaderView: UIView, ViewCodable {
+    // MARK: Properties
+
     private lazy var title: UILabel = {
         let label = UILabel()
         label.text = "New chat"
@@ -39,6 +41,8 @@ final class ChatHeaderView: UIView, ViewCodable {
         return stackView
     }()
 
+    // MARK: Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -51,6 +55,8 @@ final class ChatHeaderView: UIView, ViewCodable {
         self.setup()
     }
 
+    // MARK: Setup
+    
     func setupSubviews() {
         self.addSubview(hStack)
     }

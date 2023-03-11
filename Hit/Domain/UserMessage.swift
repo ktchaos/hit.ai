@@ -10,5 +10,4 @@ import Foundation
 struct UserMessage: Message {
     let type: MessageType
     let content: String
-
 }
