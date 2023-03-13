@@ -10,5 +10,6 @@ import Foundation
 struct OpenAIAPIConstants {
     static let baseURL = URL(string: "https://api.openai.com/v1")
     static let completionPath = "/completions"
-    static let tokenAPI = "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"
+    ///  To use this app, you must replace the tokenAPI variable below for a API key that you will have to generate at openAI platform, you can find a simple tutorial at the Read.me file
+    static let tokenAPI = ""
 }
