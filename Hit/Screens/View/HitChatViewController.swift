@@ -43,11 +43,14 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
             .drive(tableView.rx.items(
                 cellIdentifier: MessageCell.identifier,
                 cellType: MessageCell.self
-            )) { _, item, cell in
+            )) { [weak self] _, item, cell in
                 cell.bind(to: item)
+                self?.tableView.scrollToBottom()
             }
             .disposed(by: self.disposeBag)
     }
+
+    // MARK: Setup
 
     func setupSubviews() {
         view.addSubview(messageTextField)
@@ -80,10 +83,18 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
     func setupActions() {
         messageTextField.sendButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel?.input.sendMessage(input: self?.messageTextField.textField.text ?? "")
-                self?.messageTextField.textField.text = ""
+                self?.didTapOnSendButton()
             })
             .disposed(by: disposeBag)
+    }
+
+    func didTapOnSendButton() {
+        viewModel?.input.sendMessage(input: messageTextField.textField.text ?? "")
+        messageTextField.textField.text = ""
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            self?.view.frame.origin.y = 0
+            self?.view.endEditing(true)
+        })
     }
 
     func setupKeyboardAppeances() {
@@ -101,29 +112,11 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
         )
     }
 
-    // TODO: Improve UX for keyboard
-
     @objc func keyboardWillShow(sender: NSNotification) {
-//        guard let keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
-//            return
-//        }
-//
-//
-//        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
-//        let convertedTextFieldFrame = view.convert(messageTextField.frame, to: messageTextField.superview)
-//        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
-//
-//        let textBoxY = convertedTextFieldFrame.origin.y
-//        let newFrameY = (textBoxY - keyboardTopY / 2) * -1
-//
-//        view.frame.origin.y = newFrameY
-
-//        self.messageTextField.frame.origin.y = messageTextField.frame.origin.y - 200
         view.frame.origin.y = view.frame.origin.y - 300
     }
 
     @objc func keyboardWillHide(sender: NSNotification) {
-//        self.messageTextField.frame.origin.y = 0
         view.frame.origin.y = 0
     }
 }

@@ -33,6 +33,7 @@
 		CB552C9229B3DC6D00AFB8B6 /* HitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB552C9129B3DC6D00AFB8B6 /* HitUITestsLaunchTests.swift */; };
 		CB790CEA29B97C5000A76B4A /* MessageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB790CE929B97C5000A76B4A /* MessageCellViewModel.swift */; };
 		CB790CEC29B98C3F00A76B4A /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB790CEB29B98C3F00A76B4A /* MessageCell.swift */; };
+		CB8FB66829BEB25C008DEF87 /* TableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8FB66729BEB25C008DEF87 /* TableView+Extensions.swift */; };
 		CB96AF7A29B41C990029057A /* HitChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF7929B41C990029057A /* HitChatViewController.swift */; };
 		CB96AF7D29B428760029057A /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF7C29B428760029057A /* ViewCodable.swift */; };
 		CB96AF8129B42F3A0029057A /* HitChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96AF8029B42F3A0029057A /* HitChatViewModel.swift */; };
@@ -99,6 +100,7 @@
 		CB552C9129B3DC6D00AFB8B6 /* HitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CB790CE929B97C5000A76B4A /* MessageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellViewModel.swift; sourceTree = "<group>"; };
 		CB790CEB29B98C3F00A76B4A /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		CB8FB66729BEB25C008DEF87 /* TableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Extensions.swift"; sourceTree = "<group>"; };
 		CB96AF7929B41C990029057A /* HitChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitChatViewController.swift; sourceTree = "<group>"; };
 		CB96AF7C29B428760029057A /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		CB96AF8029B42F3A0029057A /* HitChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitChatViewModel.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				CB35CC1229BBD16E00B61FCE /* TextField+Extensions.swift */,
 				CBBDE20929BC200400CDDDB9 /* Cell+Extensions.swift */,
 				CBBDE20F29BC2FB100CDDDB9 /* UIView+Extensions.swift */,
+				CB8FB66729BEB25C008DEF87 /* TableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				CB552C7129B3DC6C00AFB8B6 /* SceneDelegate.swift in Sources */,
 				CBBDE20A29BC200400CDDDB9 /* Cell+Extensions.swift in Sources */,
 				CB11D63E29B51E750076A7DB /* RemoteChatService.swift in Sources */,
+				CB8FB66829BEB25C008DEF87 /* TableView+Extensions.swift in Sources */,
 				CBBDE21029BC2FB100CDDDB9 /* UIView+Extensions.swift in Sources */,
 				CB790CEC29B98C3F00A76B4A /* MessageCell.swift in Sources */,
 				CB96AF9029B441B00029057A /* DefaultChatRepository.swift in Sources */,
@@ -852,7 +856,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DZA2L753SZ;
+				DEVELOPMENT_TEAM = 969F29TH8A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
