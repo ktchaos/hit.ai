@@ -23,7 +23,7 @@ final class DefaultHitChatViewModel: HitChatViewModel, HitChatViewModelOutput {
         bindChatRepository()
     }
 
-    func bindChatRepository() {
+    private func bindChatRepository() {
         chatRepository.chat.asDriver()
             .drive { [weak self] in
                 let cellModels = $0.map { MessageCellViewModel(message: $0.content, type: $0.type) }
