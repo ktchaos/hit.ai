@@ -113,7 +113,7 @@ final class HitChatViewController: UIViewController, ViewModelBindable {
     }
 
     @objc func keyboardWillShow(sender: NSNotification) {
-        view.frame.origin.y = view.frame.origin.y - 300
+        view.frame.origin.y = view.frame.origin.y - 345
     }
 
     @objc func keyboardWillHide(sender: NSNotification) {
